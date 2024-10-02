@@ -1,5 +1,5 @@
 alphabet = "abcdefghijklmnopqrstuvwxyz"
-plaintext = "hello"
+plaintext = "hello there"
 
 def encrypt(x, a, c):
     return (a*x + c) % (len(alphabet))
@@ -7,6 +7,9 @@ def encrypt(x, a, c):
 def encrypt_text(text):
     array = []
     for chr in text:
+        if chr not in alphabet: 
+            array.append(chr)
+            continue
         index = encrypt(alphabet.index(chr), 5, 2)
         newchar = alphabet[index]
         array.append(newchar)
@@ -35,6 +38,9 @@ def decrypt(x, a, c):
 def decrypt_text(text):
     array = []
     for chr in text:
+        if chr not in alphabet: 
+            array.append(chr)
+            continue
         index = decrypt(alphabet.index(chr), 5, 2)
         newchar = alphabet[index]
         array.append(newchar)
