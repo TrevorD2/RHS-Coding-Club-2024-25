@@ -49,3 +49,6 @@ def solve(i):
 
 for i in range(n):
     print(solve(i))
+
+
+file.close()
